@@ -1,0 +1,85 @@
+<div>
+  <hr>
+  <div class="row">
+    <div class="col-md-4 text-right">
+      Request Identifier
+      <br><small class="text-muted">Any identifier to name the job</small>
+    </div>
+    <div class="col-md-8">
+      <input type="text" class="form-control" ng-model="sms_payload.requestId" />
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4 text-right">
+      API Type
+      <br><small class="text-muted">Refer to <a href="http://www.connecto.io/kb/knwbase/getting-gcm-sender-id-and-gcm-api-key/">this</a> page to find GCM API Key</small>
+    </div>
+    <div class="col-md-8">
+      <div type="text" class="form-control">GUPSHUP</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 text-right">
+      Username & Password
+      <br><small class="text-muted">Refer to <a
+href="http://www.connecto.io/kb/knwbase/getting-gcm-sender-id-and-gcm-api-key/">this</a> page to learn more about Gupshup integration</small>
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control" ng-model="sms_payload.apiCredentials.username"/>
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control" ng-model="sms_payload.apiCredentials.password"/>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4 text-right">
+      Message
+      <br><small class="text-muted">SMS Text</small>
+    </div>
+    <div class="col-md-8">
+      <div class="alert alert-success" ng-show="jsonError">
+        {{jsonError}}
+      </div>
+      <textarea rows=4 class="form-control" ng-model="sms_payload.message"/>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4 text-right">
+      Phone Numbers
+      <br><small class="text-muted">Comma separated Phone Numbers e.g.  919876543210</small>
+    </div>
+    <div class="col-md-8">
+      <textarea rows=4 class="form-control" ng-model="data.numbers" />
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4 text-right">
+      Override DND
+      <br><small class="text-muted">Ignore DND restrictions</small>
+    </div>
+    <div class="col-md-8">
+      <label class="checkbox-inline" style="padding-top:0">
+        <input type="checkbox" ng-model="sms_payload.override_dnd">
+      </label>
+    </div>
+  </div>
+  <br>
+
+  <div class="alert alert-success" ng-show="successMessage">
+    {{successMessage}}
+    <br>Sent Data: <br>
+    {{sentData}}
+  </div>
+
+  <div class="alert alert-danger" ng-show="failureMessage">
+    {{failureMessage}}
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" ng-click="sendSmsViaApi()">Send</button>
+  <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>

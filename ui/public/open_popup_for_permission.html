@@ -1,0 +1,51 @@
+<head>
+  <link rel="manifest" href="/connecto_manifest.json">
+  <!-- <script src="/javascripts/{{requestFileName}}"></script> -->
+</head>
+
+
+<script>
+  !function() {
+    var _connecto=window._connecto=window._connecto||[];
+    _connecto.methods = ["track","identify","page"];
+    _connecto.factory = function(t) {
+      return function() {
+        var e = Array.prototype.slice.call(arguments);
+        e.unshift(t);
+        _connecto.push(e);
+        return _connecto
+      }
+    };
+    for(var t=0;t<_connecto.methods.length;t++) {
+      var e=_connecto.methods[t];
+      _connecto[e]=_connecto.factory(e);
+    }
+    _connecto.load=function(t) {
+      window._connecto.writeKey = t;
+      var con = document.createElement('script'); con.type ='text/javascript';con.async=!0;
+      con.src = document.location.protocol + '//api.connecto.io/javascripts/chrome_connecto.prod.min.js';
+      if (document.location.hostname === 'localhost') {
+        con.src = document.location.protocol + '//localhost:3000/javascripts/chrome_connecto.min.js';
+      }
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(con, s);
+    };
+    _connecto.load('XXXXX');
+  }();
+
+function clearLocalStorage() {
+  localStorage.removeItem('_Connecto');
+}
+</script>
+<h1>This page is to test chrome push for non-ssl pages.</h1>
+
+<button onclick="popupCenter('https://push.connecto.io/html5PushNonSsl?writeKey=XXXXX&parentDomainName='+window.location.host, 'Chrome Push Permission',500,500);">Open API in Popup</button>
+
+<script>
+function popupCenter(url, title, w, h) {
+var left = (screen.width/2)-(w/2);
+var top = (screen.height/2)-(h/2);
+return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, titlebar=no, height='+h+', width='+w+', top='+top+', left='+left);
+};
+</script>
+

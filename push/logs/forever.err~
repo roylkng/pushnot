@@ -1,0 +1,37 @@
+js-bson: Failed to load c++ bson extension, using pure JS version
+js-bson: Failed to load c++ bson extension, using pure JS version
+js-bson: Failed to load c++ bson extension, using pure JS version
+Error: Not Found
+    at /home/rajankadeval/work/repos/connecto/push/app.js:80:13
+    at Layer.handle [as handle_request] (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:312:13)
+    at /home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:280:7
+    at Function.process_params (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:330:12)
+    at next (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:271:10)
+    at /home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:618:15
+    at next (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:256:14)
+    at Function.handle (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:176:3)
+    at router (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:46:12)
+Error: Not Found
+    at /home/rajankadeval/work/repos/connecto/push/app.js:80:13
+    at Layer.handle [as handle_request] (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:312:13)
+    at /home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:280:7
+    at Function.process_params (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:330:12)
+    at next (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:271:10)
+    at /home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:618:15
+    at next (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:256:14)
+    at Function.handle (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:176:3)
+    at router (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:46:12)
+Error: Not Found
+    at /home/rajankadeval/work/repos/connecto/push/app.js:80:13
+    at Layer.handle [as handle_request] (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:312:13)
+    at /home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:280:7
+    at Function.process_params (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:330:12)
+    at next (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:271:10)
+    at /home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:618:15
+    at next (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:256:14)
+    at Function.handle (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:176:3)
+    at router (/home/rajankadeval/work/repos/connecto/push/node_modules/express/lib/router/index.js:46:12)
+js-bson: Failed to load c++ bson extension, using pure JS version

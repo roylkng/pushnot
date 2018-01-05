@@ -1,0 +1,126 @@
+<nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+  <ul class="nav navbar-top-links pull-left"
+      style="line-height: 60px;height: 60px;margin-left: 10px"
+      id="connecto-product-icons"
+      ng-show="isAdminUser || isEventsUser">
+    <li>
+      <a id="web_widgets_dashboard" href="/n/app">
+        <button class="btn btn-circle" type="button" tooltip="Web Widgets"
+           ng-class="(applicationName == 'connectoApp') ? 'btn-primary' : 'btn-default btn-outline'"
+           href="/n/app">
+          <i class="fa fa-globe"></i>
+          <span class="product-name">Web Widgets</span>
+        </button>
+      </a>
+    </li>
+    <li>
+      <a id="events_dashboard" href="/n/events">
+        <button class="btn btn-circle" type="button" tooltip="Events"
+           ng-class="(applicationName == 'eventsApp') ? 'btn-primary' : 'btn-default btn-outline'"
+           href="/n/events">
+          <i class="fa fa-bar-chart"></i>
+          <span class="product-name">Events</span>
+        </button>
+      </a>
+    </li>
+    <li>
+      <a id="email_dashboard" href="/n/emails">
+        <button class="btn btn-circle" type="button" tooltip="Emails"
+           ng-class="(applicationName == 'emailsApp') ? 'btn-primary' : 'btn-default btn-outline'"
+          href="/n/emails">
+          <i class="fa fa-envelope"></i>
+          <span class="product-name">Emails</span>
+        </button>
+      </a>
+    </li>
+    <li>
+      <a id="mobile_dashboard" href="/n/push_notifications">
+        <button class="btn btn-circle" type="button" tooltip="Mobile Push Notifications"
+           ng-class="(applicationName == 'pushNotificationsApp') ? 'btn-primary' : 'btn-default btn-outline'"
+           href="/n/push_notifications">
+          <i class="fa fa-mobile"></i>
+          <span class="product-name">Mobile Push</span>
+        </button>
+      </a>
+    </li>
+    <li>
+      <a id="chrome_dashboard" href="/n/html5_notifications">
+        <button class="btn btn-circle" type="button" tooltip="HTML5 Notifications"
+           ng-class="(applicationName == 'html5NotificationsApp') ? 'btn-primary' : 'btn-default btn-outline'"
+           ng-href="/n/html5_notifications">
+          <i class="fa fa-html5"></i>
+          <span class="product-name">HTML5 Notifications</span>
+        </button>
+      </a>
+    </li>
+  </ul>
+  <ul class="nav navbar-top-links pull-left"
+      style="line-height: 60px;height: 60px;margin-left: 10px"
+      id="connecto-product-icons"
+      ng-show="!isAdminUser && applicationName == 'connectoApp' && surveysEnabled">
+    <li>
+      <a id="surveys_dashboard" href="/s">
+        <button class="btn btn-circle btn-primary" type="button" tooltip="Connecto Surveys"
+           ng-href="/s">
+          <i class="fa fa-check-square-o"></i>
+          <span class="product-name">Surveys</span>
+        </button>
+      </a>
+    </li>
+  </ul>
+
+  <ul class="nav navbar-top-links pull-right" style="margin-right: -11px;">
+    <li class="btn-group dropdown">
+      <a class="dropdown-toggle" id="runningAsUserDropdown" data-toggle="dropdown" aria-expanded="true">
+        <span class="text-success">{{appContext.runningAsUser.name}}
+          <i class="fa fa-user" style="margin-left:5px;"></i>
+          <span class="caret"></span>
+        </span>
+      </a>
+      <ul class="dropdown-menu" style="overflow: hidden;max-height: 400px;right: 0;left: auto;min-width:180px" aria-labelledby="runningAsUserDropdown">
+        <li ng-hide="appContext.allUsers.length == 1" style="max-height:320px; overflow-x:hidden;overflow-y:auto;padding-bottom:10px;">
+          <ul style="padding:0; margin:0">
+            <li ng-click="$event.stopPropagation();" style="margin:0 0 5px 0; padding:0;">
+              <input type="text" ng-model="runningAsListFilterText" placeholder="Type to filter user list"
+                     style="border-top:0; border-left:0; border-right:0; border-bottom: 1px solid #d3d3d3;padding: 5px 10px;margin: 0;width: 100%;height: 32px;line-height:24px"></input>
+            </li>
+            <li ng-repeat="profile in appContext.allUsers | filter:runningAsListFilterText | orderBy: 'name'">
+              <a href="/n/user/{{profile.id}}" class="name">{{profile.name}}</a>
+            </li>
+          </ul>
+        </li>
+        <li class="divider" ng-hide="appContext.allUsers.length == 1"></li>
+        <li>
+          <a href="{{dbUrl}}/accounts/logout/?next=/n/">
+            <i class="fa fa-sign-out"></i> Log out
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <ul class="nav navbar-top-links pull-right" ng-show="applicationName == 'connectoApp'">
+    <li class="btn-group dropdown">
+      <a class="dropdown-toggle" id="websiteDropdown" data-toggle="dropdown" aria-expanded="true">
+        <span class="text-success">{{selectedWebsite}}
+          <i class="fa fa-globe" style="margin-left:5px;"></i>
+          <span class="caret"></span>
+        </span>
+      </a>
+      <ul class="dropdown-menu" style="overflow: hidden;max-height: 400px;right: 0;left: auto;min-width:180px" aria-labelledby="websiteDropdown">
+        <li ng-hide="appContext.websites.length == 1" style="max-height:320px; overflow-x:hidden;overflow-y:auto;padding-bottom:10px;">
+          <ul style="padding:0; margin:0">
+            <li ng-click="$event.stopPropagation();" style="margin:0 0 5px 0; padding:0;">
+              <input type="text" ng-model="websiteListFilterText" placeholder="Type to filter website list"
+                     style="border-top:0; border-left:0; border-right:0; border-bottom: 1px solid #d3d3d3;padding: 5px 10px;margin: 0;width: 100%;height: 32px;line-height:24px"></input>
+            </li>
+            <li ng-repeat="website in appContext.websites | filter:websiteListFilterText | orderBy: 'name'">
+              <a ng-click="changeSelectedWebsite(website)" href="javascript:void(0)">
+                {{website}}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

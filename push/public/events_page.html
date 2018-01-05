@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="manifest" href="/connecto_manifest.json">
+</head>
+<body>
+
+<h1>This is a test page</h1>
+<div>
+  <button onclick="_connecto.track('Add to Cart', { category: '4 for 499', value: '300', co_type:1, co_ttl: 86400});">Add to Cart - 4 for 499</button>
+  <button onclick="_connecto.track('Order', {value: 400, co_type:1});">Order Complete</button>
+  <button onclick="_connecto.track('Lead', {website: 'http://www.connecto.io', phone: '8826026333'});">Lead</button>
+  <input type="text" name="identify" id="userInput">
+  <button onclick="_connecto.identify(document.getElementById('userInput').value, {'name': 'ABCD', 'email': 'shraddha@connecto.io'})">Identify</button>
+  <button onclick="clearLocalStorage()">Clear Data</button>
+  <button onclick="flushIdentity()">Flush Events</button>
+  <button onclick="_connecto.initPushRegistration()">Enable Chrome Push</button>
+</div>
+<script>
+  !function() {
+    var _connecto=window._connecto=window._connecto||[];
+    _connecto.methods = ["track","identify","page"];
+    _connecto.factory = function(t) {
+      return function() {
+        var e = Array.prototype.slice.call(arguments);
+        e.unshift(t);
+        _connecto.push(e);
+        return _connecto
+      }
+    };
+    for(var t=0;t<_connecto.methods.length;t++) {
+      var e=_connecto.methods[t];
+      _connecto[e]=_connecto.factory(e);
+    }
+    _connecto.load=function(t) {
+      window._connecto.writeKey = t;
+      var con = document.createElement('script'); con.type ='text/javascript';con.async=!0;
+      con.src = document.location.protocol + '//push.connecto.io/javascripts/connecto.min.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(con, s);
+    };
+    _connecto.load('XXXXX');
+  }();
+
+function clearLocalStorage() {
+  localStorage.removeItem('_Connecto');
+}
+</script>
+
+</body>
+</html>

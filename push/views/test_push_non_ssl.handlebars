@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="manifest" href="/connecto_manifest.json" crossorigin="use-credentials">
+<script>
+  var _connecto = [];
+  _connecto.writeKey = '{{projectWriteKey}}';
+</script>
+<script>
+  !function() {
+    var _connecto=window._connecto=window._connecto||[];
+    _connecto.methods = ["track","identify","page"];
+    _connecto.factory = function(t) {
+      return function() {
+        var e = Array.prototype.slice.call(arguments);
+        e.unshift(t);
+        _connecto.push(e);
+        return _connecto
+      }
+    };
+    for(var t=0;t<_connecto.methods.length;t++) {
+      var e=_connecto.methods[t];
+      _connecto[e]=_connecto.factory(e);
+    }
+    _connecto.load=function(t) {
+      window._connecto.writeKey = t;
+      var con = document.createElement('script'); con.type ='text/javascript';con.async=!0;
+      con.src = document.location.protocol + '//api.connecto.io/javascripts/chrome_connecto.prod.min.js';
+      if (document.location.hostname === 'localhost') {
+        con.src = document.location.protocol + '//localhost:3000/javascripts/chrome_connecto.min.js';
+      }
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(con, s);
+    };
+    _connecto.load('XXXXX');
+  }();
+
+function clearLocalStorage() {
+  localStorage.removeItem('_Connecto');
+}
+</script>
+        <style>
+
+        body {
+          margin: 0;
+          padding: 0;
+          background-color: #f6f6f6;
+          width: 100%;
+          height: 100%;
+        }
+
+        body, html {
+          height: 100%;
+          overflow: hidden;
+        }
+
+        p {
+          font-family: "Helvetica Neue", "Arial";
+        }
+
+
+
+        /* Desktop  Notification */
+        #desktop-notification {
+          width: 360px;
+          height: 85px;
+          margin: 0 auto;
+          padding: 0;
+          display: block;;
+          border: 1px solid #ddd;
+          background-color: white;
+
+          -webkit-box-shadow: 0px 9px 20px -15px rgba(0,0,0,0.75);
+          -moz-box-shadow: 0px 9px 20px -15px rgba(0,0,0,0.75);
+          box-shadow: 0px 9px 20px -15px rgba(0,0,0,0.75);
+        }
+
+        #desktop-notification-icon {
+          margin: 0;
+          height: 85px;
+          width: 85px;
+          float: left;
+          padding: 0;
+        }
+
+        #desktop-notification-title {
+          font-size: 15px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          position: relative;
+          left: 10px;
+        }
+
+
+        #desktop-notification-message {
+          margin-top: 10px;
+          margin-bottom: 0px;
+          font-size: 13px;
+          position: relative;
+          left: 10px;
+        }
+
+        #desktop-notification-url {
+          color: #AAA;
+          font-size: 13px;
+          margin-top: 8px;
+          margin-bottom: 0px;
+          position: relative;
+          left: 10px;
+        }
+
+        #x {
+          float: right;
+          margin-right: 8px;
+          margin-top: 5px;
+          color: #999;
+        }
+
+
+        #mobile {
+          width: 100%;
+          height: 100%;
+        }
+
+        #mobile-top-section {
+          overflow: hidden;
+          position: absolute;
+          top: 0;
+          bottom: 106px;
+          width: 100%;
+        }
+
+        #mobile-top-section-wrapper {
+          display: table;
+          width: 100%;
+          height: 100%;
+
+        }
+
+        #mobile-top-section-content {
+          display: table-cell;
+          vertical-align: middle;
+          width: 100%;
+        }
+
+
+        #mobile-directions {
+          font-size: 1.4em;
+          line-height: 1.6em;
+          padding: 0px 1em;
+          text-align: center;
+          color: #333;
+          font-weight: 200;
+          margin-top: 0;
+          margin-bottom: 7px;
+        }
+
+
+        /* Mobile Notification */
+        #mobile-notification {
+          width: 90%;
+          max-width: 350px;
+
+          height: 65px;
+          margin: 0 auto;
+          padding: 0;
+          display: block;
+          border: 1px solid #ccc;
+          background-color: white;
+
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+
+
+          -webkit-box-shadow: 0px 9px 20px -15px rgba(0,0,0,0.75);
+          -moz-box-shadow: 0px 9px 20px -15px rgba(0,0,0,0.75);
+          box-shadow: 0px 9px 20px -15px rgba(0,0,0,0.75);
+
+        }
+
+        #mobile-notification-icon {
+          margin: 0;
+          height: 50px;
+          margin-left: 9px;
+          margin-top: 7px;
+          width: 50px;
+          padding: 15px;
+          float: left;
+          padding: 0;
+        }
+
+        #mobile-notification-title {
+          font-size: 18px;
+          position: relative;
+          left: 10px;
+          margin-top: 3px;
+          margin-bottom: 0;
+
+        }
+
+        #mobile-notification-message {
+          position: relative;
+          left: 10px;
+          margin-top: 4px;
+          color: #777;
+          font-size: 13px;
+          margin-bottom: 0px;
+        }
+         #mobile-notification-url {
+          color: #AAA;
+          font-size: 12px;
+          margin-top: 3px;
+          margin-bottom: 0px;
+          position: relative;
+          left: 10px;
+        }
+
+
+        #mobile-opt-out {
+          font-style: italic;
+          color: #777;
+          font-size: 12px;
+          text-align: center;
+        }
+
+
+
+        hr {
+          width: 85%;
+          background-color: #ccc;
+          border: none;
+          height: 1px;
+          margin-top: 0;
+
+        }
+
+        #mobile-footer {
+          width: 100%;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          display: block;
+        }
+
+
+        #mobile-button-container {
+          width: 100%;
+          display: table;
+          border-spacing: 10px;
+        }
+
+        .mobile-button-wrapper {
+          width: 50%;
+          display: table-cell;
+          text-align: center;
+        }
+
+        .mobile-button {
+          outline: none;
+          border: none;
+          padding: 15px 5px;
+          font-size: 14px;
+          text-align: center;
+          max-width: 150px;
+          width: 100%;
+          cursor: pointer;
+
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+        }
+
+
+        #show-prompt-button {
+          background-color: #4285f4;
+          color: white;
+          border: 1px solid #4278d2;
+        }
+
+        #show-prompt-button:hover {
+          background-color: #5392fc;
+        }
+
+        #show-prompt-button:active {
+          background-color: #3a7be7;
+        }
+
+
+        #close-button {
+          color: #555;
+          border: 1px solid #ccc;
+          background-color: #f6f6f6;
+        }
+
+        #close-button:hover {
+          background-color: #fafafa;
+        }
+
+        #close-button:active {
+          background-color: #eaeaea;
+        }
+
+
+
+        #mobile-footer-message {
+          text-align: center;
+          color: #aaa;
+          position:relative;
+          bottom:5px;
+          font-size: 11px;
+          margin-bottom: 5px;
+          margin-top: 10px;
+        }
+
+        a:not(.default-link) {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        #intercom-container {
+          display: none;
+        }
+
+        #error-box {
+          display: none;
+          width: 80%;
+          left: 10%;
+          top: 60%;
+          z-index: 20;
+          position: absolute;
+          background-color: white;
+          border: 1px solid #aaa;
+
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+
+          -webkit-box-shadow: 0px 9px 20px -15px rgba(0,0,0,0.85);
+          -moz-box-shadow: 0px 9px 20px -15px rgba(0,0,0,0.85);
+          box-shadow: 0px 9px 20px -15px rgba(0,0,0,0.85);
+
+          transition: opacity .5s;
+        }
+
+        #error-message-padding {
+            padding-top: 0px;
+            padding-right: 15px;
+            padding-bottom: 0px;
+            padding-left: 15px;
+        }
+
+        .error {
+          display: none;
+        }
+
+        .btn-close {
+          position: absolute;
+          right: 10px;
+          top: 0px;
+          z-index: 20;
+          font-size: 25px;
+          text-decoration: none;
+          font-family: 'Helvetica', arial;
+          color: #888;
+        }
+
+        .btn-close:hover {
+           color: #000;
+         }
+      </style>
+      <script>
+        function rejectPrompt() {
+          window.close();
+        }
+        var isPushSupported = true;
+      </script>
+</head>
+
+
+<body class="gray-bg">
+      <div id="black-wrapper">
+      </div>
+
+      <div id="white-wrapper">
+      </div>
+
+      <div id="mobile">
+
+        <div id="mobile-top-section">
+          <div id="mobile-top-section-wrapper">
+            <div id="mobile-top-section-content">
+
+              <div style="height: 25px;">
+                <a href="#" onclick="rejectPrompt()" class="btn-close default-link">x</a>
+              </div>
+
+              <p id="mobile-directions"><strong>{{websiteDomainName}}</strong> wants to send notifications to your <span>{{deviceType}}</span>.</p>
+
+              <div id="desktop-notification">
+                <img id="desktop-notification-icon" src={{displayIcon}}>
+                <p id="x">x</p>
+                <p id="desktop-notification-title">This is an example notification</p>
+                <p id="desktop-notification-message">Notifications will appear on your desktop</p>
+                <p id="desktop-notification-url">{{websiteDomainName}}</p>
+              </div>
+
+              <p id="mobile-opt-out"> (You can unsubscribe any time) </p>
+            </div>
+          </div>
+        </div>
+        <footer id="mobile-footer">
+          <hr>
+          <div id="mobile-button-container">
+            <div class="mobile-button-wrapper">
+              <button class="mobile-button" onclick="rejectPrompt()" id="close-button">Close</button>
+            </div>
+          </div> ->
+        </footer>
+
+      </div>
+
+      <div id="error-box">
+        <div id="error-message-padding">
+          <div class="error" id="disabled-notifications">
+            <p> Notifications are currently disabled.</p> <p>Please re-enable them by clicking on the lock icon in the top left of this window. </p>
+          </div>
+
+          <!-- if notifications are already enabled -->
+          <div class="error" id="enabled-notifications">
+            <p> Notifications are already enabled, you may close this window. </p>
+          </div>
+
+        </div>
+      </div>
+
+      <script>
+        if(!_connecto.isPushSupported()) {
+          showError('push-not-supported');
+        }
+        if(Notification.permission === 'denied') {
+          showError('disabled-notifications');
+        }
+        else if(Notification.permission === 'granted') {
+          showError('enabled-notifications');
+        }
+
+      function showError(error) {        // put a white overlay over all existing content
+        // this also disables all functionality
+        document.getElementById("white-wrapper").style.zIndex = "10";
+        document.getElementById("white-wrapper").style.opacity = ".75";
+
+        setTimeout(function(){
+          document.getElementById("error-box").style.opacity = "1";
+          document.getElementById("error-box").style.display = "block";
+        }, 500 );
+
+        document.getElementById(error).style.display = "block";
+      }
+    </script>
+
+<script>
+function clickedContinue() {
+    document.getElementById("black-wrapper").style.zIndex = "10";
+    document.getElementById("black-wrapper").style.opacity = ".75";
+    setTimeout(function () {
+      _connecto.initPushRegistration(true, function () {
+        window.close();
+      });
+    }, 500);
+  }
+window.onload = clickedContinue;
+</script>
+</body>
+</html>

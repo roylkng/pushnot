@@ -1,0 +1,7 @@
+js-bson: Failed to load c++ bson extension, using pure JS version
+[0;36mMongoose:[0m events_stats.ensureIndex({ day: [33m-1[39m, projectId: [33m1[39m }) { background: [33mtrue[39m, safe: [90mundefined[39m }  
+[0;36mMongoose:[0m pageevents_stats.ensureIndex({ day: [33m-1[39m, projectId: [33m1[39m }) { background: [33mtrue[39m, safe: [90mundefined[39m }  
+[0;36mMongoose:[0m accounts_project.find({}) { fields: [90mundefined[39m }  
+[0;36mMongoose:[0m pushactions_stats.ensureIndex({ day: [33m-1[39m, projectId: [33m1[39m }) { background: [33mtrue[39m, safe: [90mundefined[39m }  
+[0;36mMongoose:[0m pushactions_stats.aggregate([ { [32m'$match'[39m: { projectId: [32m'56cc6a2bcae42dab131834c6'[39m } }, { [32m'$group'[39m: { _id: { actionType: [32m'$actionType'[39m }, count: { [32m'$sum'[39m: [32m'$count'[39m } } } ]) {}  
+[0;36mMongoose:[0m pushactions_stats.aggregate([ { [32m'$match'[39m: { projectId: [32m'56cc6a2bcae42dab131834c6'[39m } }, { [32m'$group'[39m: { _id: { actionType: [32m'$actionType'[39m }, count: { [32m'$sum'[39m: [32m'$count'[39m } } } ]) {}  

@@ -1,0 +1,23 @@
+<!doctype html>
+<html class="no-js" ng-app="pushNotificationsApp">
+
+<head>
+    <meta charset="utf-8">
+    <title ng-bind="$root.title + ' Push Notifications App'">Push Notifications App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en">
+    <link rel="stylesheet" href="/static/pushNotificationsApp/styles/vendor.css">
+    <link rel="stylesheet" href="/static/pushNotificationsApp/styles/push-notificationsApp.css"> 
+    <script src="/static/pushNotificationsApp/scripts/modernizr.js"></script>
+    <script src="/static/js/common.js"></script>
+</head>
+
+<body class="fixed-nav">
+    <div ui-view=""></div>
+    <script src="/static/pushNotificationsApp/scripts/vendor.js"></script>
+    <script src="/static/pushNotificationsApp/scripts/push-notificationsApp.js"></script>
+</body>
+    {{>common_js}}
+
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html class="no-js" ng-app="pushNotificationsApp">
+<head>
+  <meta charset="utf-8">
+  <title ng-bind="$root.title + ' Connecto Push Notifications App'">Connecto Events App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en">
+
+  <!-- Files for vendor.css -->
+  <link rel="stylesheet" href="/static/pushNotificationsDebugApp/bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="/static/pushNotificationsDebugApp/bower_components/fontawesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="/static/pushNotificationsDebugApp/bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+  <link rel="stylesheet" href="/static/pushNotificationsDebugApp/bower_components/sass-bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="/static/pushNotificationsDebugApp/bower_components/angular-ui-select/dist/select.css" />
+
+  <link rel="stylesheet" href="/static/pushNotificationsDebugApp/bower_components/jquery-ui/themes/base/resizable.css" />
+  <link rel="stylesheet" href="/static/pushNotificationsDebugApp/bower_components/angular-slider/slider.css" />
+  <link rel="stylesheet" href="/static/pushNotificationsDebugApp/theme/inspinia.css">
+  <link rel="stylesheet" href="/static/pushNotificationsDebugApp/theme/animate.css">
+
+  <link rel="stylesheet" href="/static/pushNotificationsDebugApp/theme/common-css/index.css">
+
+  <script src="/static/pushNotificationsDebugApp/bower_components/modernizr/modernizr.js"></script>
+</head>
+
+<body>
+  <div ui-view=""></div>
+
+  <!-- Files for vendor.js -->
+  <script src="/static/pushNotificationsDebugApp/bower_components/es5-shim/es5-shim.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/pace/pace.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/angular/angular.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/jquery-ui/jquery-ui.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/angular-slider/slider.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/moment/moment.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/flot/jquery.flot.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/angular-flot/angular-flot.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/json3/lib/json3.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/lazy.js/lazy.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/angular-route/angular-route.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/angular-ui-form-validation/dist/angular-ui-form-validation.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/angular-ui-select/dist/select.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/randomcolor/randomColor.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/momentjs/moment.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script src="/static/pushNotificationsDebugApp/bower_components/ng-bs-daterangepicker/src/ng-bs-daterangepicker.js"></script>
+
+  <!-- endbower -->
+  <!-- Non bower scripts. -->
+  <script src="/static/pushNotificationsDebugApp/bower_components/flot/jquery.flot.pie.js"></script>
+  <script src="/static/pushNotificationsDebugApp/theme/angles.js"></script>
+  <script src="/static/pushNotificationsDebugApp/theme/inspinia.js"></script>
+  <script src="/static/pushNotificationsDebugApp/theme/angular-slimscroll.js"></script>
+  <script src="/static/pushNotificationsDebugApp/theme/jquery.slimscroll.js"></script>
+  <script src="/static/pushNotificationsDebugApp/theme/jquery.flot.time.js"></script>
+  <script src="/static/pushNotificationsDebugApp/theme/Chart.min.js"></script>
+  <script src="/static/pushNotificationsDebugApp/theme/common_directives.js"></script>
+  <!-- End Files for vendor.js -->
+
+  <!-- Files for pushNotificationsApp.js -->
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/index.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/common/context.service.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/common/date-util.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/common/navbar/navbar.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/common/modal-instance.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/common/modal-test-send-push.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/common/modal-send-push-to-userlist.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/common/modal-test-send-html5-push.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/common/modal-send-to-tags.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/common/modal-send-push-via-mongodb.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/common/components.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/main/main.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/create-edit-push/create-edit-push.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/push-notifications-list/push-notifications-list.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/push-notifications-list/push-notifications.service.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/settings/settings.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/settings/settings.service.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/events/events-project.service.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/events/events-project.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/events/profile-events.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/events/profile-page-events.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/push-api/push-api.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/job-stats/job-stats.controller.js"></script>
+  <script src="/static/pushNotificationsDebugApp/src/push-notificationsApp/job-stats/job-stats.service.js"></script>
+
+  <!-- End Files for pushNotificationsApp.js -->
+  {{>common_js}}
+
+</body>
+
+</html>
+
